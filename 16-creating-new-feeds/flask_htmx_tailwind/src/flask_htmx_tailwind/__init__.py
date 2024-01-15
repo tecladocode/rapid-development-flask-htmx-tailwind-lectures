@@ -52,7 +52,7 @@ def create_app():
     def add_feed():
         feed = request.form.get("url")
         title = request.form.get("title")
-        show_images = request.form.get("showImages")
+        show_images = request.form.get("showImages") == "on"
         feeds[feed] = {"title": title, "href": feed, "show_images": show_images, "entries": {}}
         return redirect(url_for("render_feed", feed=feed))
     
